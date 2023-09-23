@@ -34,7 +34,7 @@ jobs:
     - name: Publish docker image
       run: docker push ghcr.io/${{(github.actor)}}/express-docker:${{ steps.image_version.outputs.gitsha}}
     - name: configure docker host
-      uses: khaledez/configure-docker-host@v1
+      # uses: khaledez/configure-docker-host@v1
       with:
         host: 35.176.110.79
         user: github
