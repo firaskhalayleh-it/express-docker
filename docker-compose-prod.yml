@@ -17,7 +17,7 @@ services:
     restart: always
 
   app:
-    image: ghcr.io/firaskhalayleh-it/express-docker:1a06b09
+    image: ghcr.io/firaskhalayleh-it/express-docker:$GIT_VERSION
     restart: always
     environment:
       - PORT=80
