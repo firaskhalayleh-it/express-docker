@@ -10,10 +10,12 @@ COPY package.json package-lock.json ./
 # Execute a command while building the container
 RUN npm ci
 
+RUN apk add curl
 # Now copy the project files
 ADD . . 
 # Build the app
 RUN npm run build
-
+HEALTHCHECK --interval=10s --timeout=3s \
+ CMD curl -f http://localhost/ || exit 1
 # When running the container, execute the following command
 CMD node ./dist/main.js
