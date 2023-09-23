@@ -46,4 +46,4 @@ jobs:
         GIT_VERSION: ${{steps.image_version.outputs.gitsha}}
     - name: print logs
       if: always()
-      run: docker compose logsb     
+      run: docker compose logs     

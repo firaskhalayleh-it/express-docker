@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
-	res.json({ msg: "Hello from express" })
+	res.json({ msg: "hello from firas website" })
 })
 
 app.use("/users", Container.get(UsersController).router)
