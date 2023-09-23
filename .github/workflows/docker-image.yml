@@ -33,3 +33,11 @@ jobs:
       run: docker build . --file Dockerfile --tag ghcr.io/${{(github.actor)}}/express-docker:${{ steps.image_version.outputs.gitsha}}
     - name: Publish docker image
       run: docker push ghcr.io/${{(github.actor)}}/express-docker:${{ steps.image_version.outputs.gitsha}}
+    - name: configure docker host
+      uses: khaledez/configure-docker-host@v1
+      with:
+        host: 35.176.110.79
+        user: github
+        ssh-private-key: ${{ secrets.DEPLOYMENT_KEY}}
+    - name: deploy
+      run: docker compose -f docker-compose-prod.yml up -d
