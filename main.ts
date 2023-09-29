@@ -23,7 +23,7 @@ app.use("/users", Container.get(UsersController).router)
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
-	console.log(`Starting A new server on port ${port}`)
+	console.log(`Starting A new server on port 3000`)
 })
 
 async function handleShutdown(signal: SignalConstants) {
